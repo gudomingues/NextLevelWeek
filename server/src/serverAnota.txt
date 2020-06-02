@@ -1,0 +1,59 @@
+import express, { request, response } from 'express';
+
+const app = express();
+
+app.use(express.json());
+
+//ROTA: ENDEREÇO COMPLETO DA REQUISIÇÃO
+//RECURSO: QUAL ENTIDADE ESTAMOS ACESSANDO NO SISTEMA
+
+//GET: Buscar uma ou mais informações do back-end
+//POST: Criar uma nova informação no Back-End
+//PUT: Atualizar uma informação no Back-End
+//DELETE:Remover uma inforamação do Back-end
+
+//POST http://localhost:3333/users = Criar novo usuario
+//GET http://localhost:3333/users = Listar usuarios
+//GET http://localhost:3333/users/2 Buscar dados do usuario com id 2
+
+
+//request.param: parametros que vem na propria rota que identificam um recurso
+// Query Param: parametros que vem na propria rota geralmente opcional para filtros , paginacao
+//request body: parametros para criação/atualizacao
+const users = [
+    'Diego',
+    'Cleiton',
+    'Robson,',
+    'Daniel'
+]
+
+app.get('/users', (request, response) => {
+    const search = String(request.query.search);
+
+    const filteredUsers = search ? users.filter(user => user.includes(search)) : users;
+
+    return response.json(filteredUsers);
+})
+
+app.get('/users/:id', (request, response) => {
+    const id = Number(request.params.id);
+
+    const user = users[id];
+    return response.json(user);
+})
+app.get('/users', (request, response) => {
+    console.log('Listagem de Usuarios');
+
+    return response.json(users);
+});
+
+app.post('/users', (request, response) => {
+    const data = request.body;
+    const user = {
+        name: data.name,
+        email: data.email
+    };
+    return response.json(user);
+});
+
+app.listen(3333); 
