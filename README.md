@@ -1,5 +1,5 @@
 ### Treinamento - Next Level Week - Rocketseat
-###Tecnologias utilizadas
+### Tecnologias utilizadas
 React
 React Native
 Node v12.17.0
@@ -7,7 +7,7 @@ npm 6.14.4
 TypeScript <- Deixar claro a estrutura das informações
 Knex.js <- Linguagem unificada para os DB - Query builder
 Sqlite
-###Install - Backend
+### Install - Backend
 cd server
 npm init -y <- Cria o projeto (y pega as configs default)
 npm install express
@@ -20,11 +20,10 @@ npm install knex <- Igual o JPA
 npm install sqlite3 <- DB
 npx knex migrate:latest --knexfile knexfile.ts migrate:latest <- Configura as migrations
 npm install cors -D <- Para acessar de outro projeto
-###Install - Frontend
+### Install - Frontend
 npx create-react-app web --template=typescript <- Cria um projeto React/Typescript
 cd web
-###Start
-###Backend
+### Start Backend
 npx ts-node src/server.ts
 npx ts-node-dev src/server.ts <- Hotdeploy
 npm run knex:migrate <- Roda as migrations
