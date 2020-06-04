@@ -1,0 +1,19 @@
+npm i express //<instalando express>//
+
+-D opção para desenvolvedor
+
+npx create-react-app NOME --template=typescript
+
+npm run dev //<script criado para execução do servidor>//
+
+npx node-ts-dev src/server.ts //<execução do servidor pelo terminal>//
+
+npx knex migrate:latest --knexfile 'nome do arquivo'.ts migrate:latest
+
+
+// front
+rotas 
+npm i @types/react-router-dom -D
+npm i react-icons
+
+npm i leaflet react-leaflet
